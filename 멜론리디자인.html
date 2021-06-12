@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<title>Melon</title>
+
+	<style>
+		*{
+			font-family: 'Noto Sans KR', sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+
+		a{
+			text-decoration: none;
+		}
+
+		/*.top{
+			margin: 225px;
+			margin-bottom:0; 
+			margin-top: 0;
+			background-color: orange;
+			float: left;
+		}*/
+		.side_bar{
+			width: 225px;
+			height: 1000px;
+			border-right: 1px solid #e2e7e1;
+			position: fixed;
+			float: left;
+		}
+
+		.menu_item li{
+			list-style: none;
+			margin: 10px;
+
+		}
+
+		.menu_item{
+			border-bottom: 1px #aaaaaa;
+		}
+
+		.song_text{
+				margin-top: 30px;
+				padding-top: 20px;
+
+		}
+
+		.my_menu a:hover{
+			color:#00d344;
+		}
+
+		.my_song {
+			list-style: none;
+			margin: 8px;
+			font-size: 16px;
+			font-weight: 700;
+			color: #575757;
+		}
+
+		.menu_item .menu_text a{
+			color: #363636;
+		}
+		.side_bar a{
+		  color: #575757;
+		}
+
+		.line{
+			width: 50px;
+			border-bottom: 2px solid #e2e7e1;
+			margin-left: 12px;
+			margin-bottom: 30px;
+		}
+
+		.logo{
+			padding-left: 32px;
+			margin-top: 10px;
+			margin-bottom: 50px;
+		}
+
+		.content_container{
+			margin-top: 50px;
+			display: block;
+			position: relative;
+			left: 225px;
+			width: 1505px;
+			/*background-color: green;*/
+			padding-left: 50px;
+			padding-right: 50px;
+			margin-left: auto;
+			margin-right: auto;
+			float: left;
+		}
+
+		.carousel-item{
+			height: 600px;
+			background-size: cover;
+			text-align: center;
+
+		}
+
+		.bg{
+			background-color:rgba(0, 0, 0, 0.3);
+			position: absolute;
+			height: 600px;
+			width:100%;
+			border-radius: 20px;
+
+		}
+
+		.carousel-item.item1{
+			background-image: url("https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210520103711761.jpg");
+			background-size: fill;
+			background-position: center; 
+			background-repeat:no-repeat;
+			border-radius: 20px;
+		}
+		.carousel-item.item2{
+			background-image: url("https://music-phinf.pstatic.net/20210517_168/1621239942424cfnpw_JPEG/2.jpeg");
+			background-size: cover;
+			background-position: center left;
+			background-repeat:no-repeat;
+			border-radius: 20px;
+		}
+
+		.carousel-item.item3{
+			background-image: url("https://music-phinf.pstatic.net/20210521_244/1621580955381ixjFv_JPEG/2.jpg");
+			background-size: cover;
+			background-position: center center ;
+			background-repeat:no-repeat;
+			border-radius: 20px;
+		}
+
+		.intro{
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.helper{
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+
+		.intro h1{
+			font-size: 32px;
+			color: white;
+			margin-bottom: 18px;
+			position: relative; 
+			z-index:1000;
+
+		}
+
+		.intro h2{
+			font-size: 22px;
+			color: white;
+			font-weight: 100;
+			margin-bottom: 48px;
+			position: relative;
+			z-index:1000;
+		}
+
+		.intro a{
+			background-color: #00d344;
+			color: white;
+			text-decoration: none;
+			padding: 10px 30px;
+			font-size: 16px;
+			border-radius: 30px;
+			position: relative; 
+			z-index:1000;
+		}
+
+		.intro a:hover{
+			background-color: white;
+			color: black;
+			opacity: 0.8;
+		}
+
+		.new_song{
+			margin-top: 50px;
+
+		}
+		
+
+		.clear{
+			clear: both;
+		}
+
+		.new_song_img img{
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+			margin-bottom: 8px;
+		}
+
+		/*.see_more_1{
+			color: #6a6a6a;
+			letter-spacing: -1px;
+			float: right;
+			margin-right:10px; 
+		}*/
+		.see_more{
+			color: #6a6a6a;
+			letter-spacing: -1px;
+			float: right;
+			margin-right:15px; 
+		}
+
+		.see_more_1:hover{
+			color: #00d344
+		}
+
+		.see_more:hover{
+			color: #00d344
+		}
+		.new_song_img:hover{
+			opacity: 0.8;
+		}
+
+		.title {
+			text-align: left;
+			font-size: 25px;
+			margin-bottom: 20px;
+			color: #00d344;
+			display:inline-block;
+		}
+
+		
+		.new_song h2{
+			font-size: 14px;
+			font-weight: 700;
+			margin-bottom: 2px;
+		}
+
+		.new_song h3{
+			font-size: 12px;
+			font-weight: 300;
+		}
+
+		.song_area:not(:last-child){
+			display: block;
+			float: left;
+			margin-right:28px; 	
+		}
+
+		.new_song_area{
+			height: 300px;
+			display: block;
+		}
+
+		.menu_item a:hover{
+			color: #00d344;
+		}
+
+		.box{
+			display: block;
+			width: 320px;
+			height: 300px;
+			box-shadow: 10px 10px 10px 0 rgba(0,0,0,0.15);
+			border-radius: 5%;
+			margin-bottom: 50px;
+		}
+
+		.box:hover{
+			opacity: 0.8;
+		}
+
+		
+ 		a{
+ 			text-decoration-line: none;
+ 		}
+		.box-image{
+			width: 320px;
+			height:200px;
+			object-fit: cover;
+			border-radius: 5% 5% 0 0;	
+		}
+		.text h3{
+			display: block;
+			font-size: 16px;
+			color: #333;
+			margin-top: 0;
+			margin-bottom: 10px;
+
+		}
+
+		.text h4{
+			display: block;
+			font-size: 13px;
+			font-weight: 300;
+			color: #333;
+			margin-top: 0
+			margin-bottom: 10px;
+		}
+
+		.text{
+			padding: 10px;
+		}
+
+		.box2{
+			float: left;
+		}
+
+		.magazin{
+			margin-top: 80px;
+		}
+
+		.magazin_box{
+			width: 320px;
+			height: 500px;
+			display: block;
+			border-radius: 5%;
+			margin-bottom: 50px;
+		}
+
+		.magazin_pic{
+			width: 320px;
+			height: 500px;
+			object-fit: cover;
+			 filter: brightness(80%);
+		}
+
+		.magazin_pic:hover{
+			opacity: 0.8;
+		}
+		
+		.m_text h3{
+			display: block;
+			font-size: 20px;
+			font-weight: 500;
+			color: #f5f5f5;
+			margin-top: 0
+
+		}
+
+		.m_text h4{
+			display: block;
+			font-size: 16px;
+			font-weight: 300;
+			color: #f5f5f5;
+			margin-top: 15px;
+			padding-left: 10px
+			padding-right: 10px
+		}
+
+		.m_text{
+			position: relative;
+			bottom:120px;
+			padding-left: 10px
+
+		}
+
+		.table{
+			border-collapse: collapse;
+			width: 45%;
+			display: inline-block;
+			vertical-align: middle;
+			margin-bottom: 100px;
+
+		}
+
+		.table2{
+			margin-left: 120px;
+		}
+
+
+		.table td:nth-child(1){
+			width: 20px;
+			padding-right: 20px;
+		}
+
+		.table td:nth-child(2){
+		 	padding-right: 3px;
+		}
+
+		.table td:nth-child(3){
+			font-size: 15px;
+			width: 300px;
+			font-weight: 300;
+		}
+
+		.table td:nth-child(4){
+			font-size: 13px;
+			width: 250px;
+			padding-left: 100px;
+		}
+
+		.table a{
+			display: block;
+			color: #575757;
+			text-decoration: none;
+		}
+
+		.table a:hover {
+			text-decoration: underline;
+		}
+
+	</style>
+</head>
+<body>
+
+
+	<div class="header">
+	<header class="side_bar"> 
+	<h1 class="logo">
+		<a href="#" class="link_logo"><img src="http://obj-sg.thewiki.kr/data/eba99ceba1a05feba19ceab3a02e706e67.png" width="120"></a>
+	</h1>
+	<div class="my_menu">
+		<div class="main_menu">
+			<ul class="menu_item">
+				<li class="menu_text">
+					<a href="멜론차트.html">멜론차트</a>
+				</li>
+				<li class="menu_text">
+					<a href="최신음악.html">최신음악</a>
+				</li>
+				<li class="menu_text">
+					<a href="#">장르별음악</a>
+				</li>
+				<li class="menu_text">
+					<a href="#">멜론DJ</a>
+				</li>
+				<li class="menu_text">
+					<a href="#">멜론 매거진</a>
+				</li>
+			</ul>
+		</div>
+			<ul class="menu_item">
+				<div class="song_text">
+					<div class="line"></div>
+					<li class="my_song">마이 뮤직</li>
+					<li class="playlist">
+                    <a href="#">내 플레이 리스트</a>
+               	 	</li>
+               	 	<li class="recent">
+                    <a href="#">최근 들은 곡</a>
+                	</li>
+                	<li class="many">
+                    <a href="#">많이 들은 곡</a>
+                	</li>
+                	<li class="like">
+                    <a href="#">좋아요</a>
+                	</li>
+                </div>
+			</ul>
+
+	 </header>
+	</div>
+
+
+	<div class="content_container">
+
+		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" >
+  <div class="carousel-inner">
+    <div class="carousel-item item1 active">
+    	<div class="bg"></div>
+	    	<div class="helper"></div><div class="intro">
+	     	<h1>헤픈 우연 - 헤이즈(Heize)</h1>
+	     	<h2>Love is everywhere. 헤이즈의 7번째 EP앨범을 소개합니다.</h2>
+	     	<a href="#">바로가기</a>
+	     	</div>
+    </div>
+    <div class="carousel-item item2">
+    	<div class="bg"></div>
+	    	<div class="helper"></div><div class="intro">
+	    	 <h1>Dun Dun Dance - 오마이걸</h1>
+	     	<h2>매력적인 순간, 오마이걸의 8집 미니앨범</h2>
+	     	<a href="#">바로가기</a>
+	     	</div>
+     </div>
+   
+    <div class="carousel-item item3">
+    	<div class="bg"></div>
+	    	<div class="helper"></div><div class="intro">
+	     	<h1>ASAP- STAYC</h1>
+	    	 <h2>성장하고 다채로워진 색깔의 STAYC의 2집 싱글앨범</h2>
+	    	 <a href="#">바로가기</a>
+    	 </div>
+    </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+
+		<div class="new_song">
+			<h1 class="title">최신음악</h1>
+			<span><a href="최신음악.html" class="see_more">더 보기</a></span>
+			<div class="new_song_area">
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/original/203995/20399546.jpg?version=undefined" alt=""></a>
+				<h2>Whimsical</h2>
+				<h3>정진형</h3>
+				</div>
+
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/1000/203992/20399267.jpg" alt=""></a>
+				<h2>Runaway</h2>
+				<h3>오웰무드 (Owell Mood)</h3>
+				</div>
+
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/1000/203989/20398910.jpg" alt=""></a>
+				<h2>가장 보통의 이별</h2>
+				<h3>자신</h3>
+				</div>
+
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/1000/203990/20399078.jpg" alt=""></a>
+				<h2>꽃 필 즈음에</h2>
+				<h3>JUNIK</h3>
+				</div>
+
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/1000/153196/15319630.jpg" alt=""></a>
+				<h2>Great Big Nothing</h2>
+				<h3>Olivia O</h3>
+				</div>
+
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/1000/203992/20399269.jpg" alt=""></a>
+				<h2>마인 OST Part 2</h2>
+				<h3>ID:Earth(아이디얼스)</h3>
+				</div>
+
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/1000/203993/20399385.jpg" alt=""></a>
+				<h2>Dingo X 쌔끈보이즈</h2>
+				<h3>쌔끈보이즈</h3>
+				</div>
+				<div class="song_area">
+				<a href="#" class="new_song_img"><img src="https://image.bugsm.co.kr/album/images/1000/40457/4045701.jpg" alt=""></a>
+				<h2>별이 뜬 곳에</h2>
+				<h3>양다일</h3>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div>
+			<h1 class="title">멜론 차트</h1>
+			<span><a href="멜론차트.html" class="see_more">더 보기</a></span>
+				<div>
+					<table class="table">
+						 <tr><td><a href="#">1</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/203980/20398006.jpg" width="50" alt=""></a></td><td><a href="#">Butter</a></td> <td ><a href="#">방탄소년단</a></td></tr>
+
+						<tr><td><a href="#">2</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/203977/20397734.jpg" width="50" alt=""> <td><a href="#">헤픈 우연</a></td>  <td><a href="#">헤이즈 (Heize)</a></td></tr>
+
+						<tr><td><a href="#">3</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/203973/20397321.jpg" width="50" alt=""> <td><a href="#">Next Level</a></td> <td><a href="#">aespa</a></td></tr>
+
+						<tr><td><a href="#">4</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/154325/15432584.jpg" width="50" alt=""> <td><a href="#">Dun Dun Dance</a></td> <td><a href="#">오마이걸 (OH MY GIRL)</a></td></tr>
+					</table>
+
+					<table class="table table2">
+						 <tr><td><a href="#">5</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/151758/15175845.jpg" width="50" alt=""></a></td><td><a href="#" class="just">Peaches (Feat. Daniel Caesar & Giveon)</a></td> <td ><a href="#">Justin Bieber</a></td></tr>
+
+						<tr><td><a href="#">6</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/200852/20085261.jpg" width="50" alt=""> <td><a href="#">롤린 (Rollin')</a></td>  <td><a href="#">브레이브걸스</a></td></tr>
+
+						<tr><td><a href="#">7</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/40271/4027185.jpg" width="50" alt=""> <td><a href="#">라일락</a></td> <td><a href="#">아이유</a></td></tr>
+
+						<tr><td><a href="#">8</a></td> <td><a href="#"><img src="https://image.bugsm.co.kr/album/images/1000/154325/15432584.jpg" width="50" alt=""> <td><a href="#">	
+						운전만해 (We Ride)</a></td> <td><a href="#">브레이브걸스</a></td></tr>
+					</table>
+				</div>
+		</div>
+
+		<div class="hot">
+			<h1 class="title">핫이슈</h1>
+			<span><a href="#" class="see_more">더 보기</a></span>
+			<div class="row">
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210518104152450.jpg" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>상반된 콘셉트로 보여줄 반전 매력</h3>
+				<h4>블링블링 (Bling Bling)</h4>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210517044659226.jpg" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>미친 듯 뛰어놀고 싶은 사람 여기 여기 붙어라!</h3>
+				<h4>트라이비(TRI.BE)</h4>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210512112843051.jpg" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>붉은색과 푸른색 사이를 그린 청춘, 이무진 '신호등'</h3>
+				<h4>이무진 '신호등' MV 촬영 현장</h4>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210514020135347.jpg" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>이별 후 겪는 미워하는 마음과 그리움</h3>
+				<h4>예은(YEN)</h4>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="https://cdn.pixabay.com/photo/2020/04/07/06/43/dance-5012264__340.jpg" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>청춘드라마 주인공처럼</h3>
+				<h4>기분 좋아지는 음악</h4>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="https://64.media.tumblr.com/45f210fb9f3681d1cfd4923018b46319/tumblr_pp8bqacrCx1xkv126o1_640.jpg" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>MSG워너비의 바로 그 노래!</h3>
+				<h4>라붐 '상상더하기' MV</h4>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/051/769/82051769_1621328428038_1_600x600.JPG" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>경서예지, 전건호 두 발라더의 만남</h3>
+				<h4>신곡 '다정히 내 이름을 부르면'</h4>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-3">
+			<a href="#" class="box">
+				<img src="https://music-phinf.pstatic.net/20210520_94/1621497140934bKSAS_JPEG/%C4%BF%B9%F61.jpg?type=w720" width="100%" height="200px" class="box-image">
+				<div class="text">
+				<h3>추억 속의 재즈페스티벌</h3>
+				<h4>재즈 페스티벌 추억을 소환해보자</h4>
+				</div>
+			</a>
+		</div>
+	</div>
+			</div>
+
+		<div class="magazin">
+			<h1 class="title">맬론 매거진</h1>
+			<span><a href="#" class="see_more">더 보기</a></span>
+
+		<div class="magazin_area">
+			<div class="row">
+			<div class="col-xl-3">
+				<a href="#" class="magazin_box">
+					<img class="magazin_pic" src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210527045725619.jpg">
+					<div class="m_text">
+					<h3>기다렸던 신곡의 주인공</h3>
+					<h4>실험적인 음악으로 힙한 리스너들의 <br> 마음을 저격하고 있는 Sigrid가 돌아왔다.</h4>
+					</div>
+				</a>
+			</div>
+			<div class="col-xl-3">
+				<a href="#" class="magazin_box">
+					<img class="magazin_pic" src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210524055505829.jpg">
+					<div class="m_text">
+					<h3>나만 알고 싶은 완소 뮤지션, 모트</h3>
+					<h4>많은 사랑은 받아온 싱어송 라이터 모트의 첫EP 발매! 이전과 달라진 분위기, 더 깊어진 <br> 음악성과 함께 돌아온 모트의 모습</h4>
+					</div>
+				</a>
+			</div>
+			<div class="col-xl-3">
+				<a href="#" class="magazin_box">
+					<img class="magazin_pic" src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210525105310677.jpg">
+					<div class="m_text">
+					<h3>사랑의 시작과 끝을 담다, 정승환</h3>
+					<h4>오랜만에 EP [다섯 마디]로 돌아온 아티스트 <br> 정승환, 정승환이 추천하는 "봄의 끝자락에 <br>듣기 좋은 음악"을 지금 소개합니다!</h4>
+					</div>
+				</a>
+			</div>
+			<div class="col-xl-3">
+				<a href="#" class="magazin_box">
+					<img class="magazin_pic" src="https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20210521111818694.jpg">
+					<div class="m_text">
+					<h3>달콤한 사랑 노래로 돌아온, 홍대광</h3>
+					<h4> 우리의 고막을 책임질 홍대광, 여러분께 <br> 홍대광의 새 싱글 녹음실 현장을 <br> 지금 공개합니다</h4>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		
+	</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
